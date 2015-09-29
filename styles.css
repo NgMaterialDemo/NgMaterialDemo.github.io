@@ -1,0 +1,35 @@
+a {
+  text-decoration: none;
+}
+.md-sidenav-right {
+  background-color: #ccc;
+  z-index: 99;
+  color: white;
+}
+.md-sidenav-right h4 {
+  margin-bottom: 0;
+  padding-left: 2%;
+}
+
+#mainMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+#addMenu {
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
+.container.md-default-theme {
+  background-color: #fff;
+}
+.container.md-default-theme h1 {
+  text-align: center;
+}
+.container.md-default-theme .face {
+  width: 10ex;
+  border-radius: 50%;
+}
