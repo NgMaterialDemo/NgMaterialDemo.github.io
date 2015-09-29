@@ -12,28 +12,20 @@
   <md-fab-toolbar md-open="tool.isOpen" count="tool.count" md-direction="{{tool.selectedDirection}}">
     <md-fab-trigger class="align-with-text">
       <md-button aria-label="menu" class="md-fab md-primary">
-        <md-icon>
           <i class="fa fa-bars"></i>
-        </md-icon>
       </md-button>
     </md-fab-trigger>
 
     <md-toolbar>
       <md-fab-actions class="md-toolbar-tools">
         <md-button aria-label="comment" class="md-icon-button">
-          <md-icon>
-            <i class="fa fa-home"></i>
-          </md-icon>
+            Home
         </md-button>
         <md-button aria-label="label" class="md-icon-button">
-          <md-icon>
-            <i class="fa fa-phone"></i>
-          </md-icon>
+          About
         </md-button>
         <md-button aria-label="photo" class="md-icon-button">
-          <md-icon>
-            <i class="fa fa-user"></i>
-          </md-icon>
+          Contacts
         </md-button>
       </md-fab-actions>
     </md-toolbar>
@@ -60,19 +52,22 @@
      </md-button>
     <md-sidenav md-component-id="right" md- class="md-sidenav-right md-dark-theme">
       <h4>Add a Contact</h4>
-      <form>
+      <form ng-submit="addContact(contact)" name="new_contact">
         <md-input-container>
           <label for="nameInput">Name</label>
-          <input id="nameInput" type="text" ng-model="name" md-sidenav-focus>
+          <input id="nameInput" type="text" ng-model="contact.name" md-sidenav-focus>
         </md-input-container>
         <md-input-container>
           <label for="phoneInput">Phone</label>
-          <input id="phoneInput" type="text" pattern="[0-9]" ng-model="phone">
+          <input id="phoneInput" type="text" ng-model="contact.phone">
         </md-input-container>
         <md-input-container>
-          <label for="emailInput">Email</label>
-          <input id="emailInput" type="email" ng-model="email">
+          <label for="notesInput">Notes</label>
+          <textarea id="notesInput" ng-model="contact.notes"></textarea>
         </md-input-container>
+        <md-button class="md-raised md-primary">
+          Submit
+        </md-button>
       </form>
     </md-sidenav>
     <!-- END Add Contact Menu -->

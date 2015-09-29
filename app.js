@@ -1,4 +1,3 @@
-(function() {
 'use strict';
 
 angular.module('MyApp', ['ngMaterial'])
@@ -13,7 +12,22 @@ angular.module('MyApp', ['ngMaterial'])
         count: 0,
         selectedDirection: 'right'
   };
-
+   // START Add Contact
+   $scope.addContact = function() {
+     var contact = $scope.contact;
+     $scope.contacts.push({
+       face: imagePath,
+       phone: contact.phone,
+       who: contact.name,
+       notes: contact.notes
+     })
+     $scope.contact.name = '';
+     $scope.contact.phone = '';
+     $scope.contact.notes = '';
+     $scope.new_contact.$setPristine();
+     angular.element(document.querySelector('#nameInput').focus())
+   }
+   // END Add Contact
   var imagePath = 'https://image.freepik.com/free-vector/vector-user-avatar-icon_279-10313.jpg';
     $scope.contacts = [{
       face : imagePath,
@@ -42,4 +56,3 @@ angular.module('MyApp', ['ngMaterial'])
       notes: " Hey Brian get over here"
     }];
 });
-})();

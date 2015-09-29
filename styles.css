@@ -1,3 +1,10 @@
+.md-fab-toolbar-background {
+  z-index: -1 !important;
+}
+
+.fa.fa-bars {
+  z-index: 999;
+}
 a {
   text-decoration: none;
 }
