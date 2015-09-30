@@ -40,3 +40,10 @@ a {
   width: 10ex;
   border-radius: 50%;
 }
+md-fab-toolbar md-toolbar .md-toolbar-tools {
+  padding-left: 5%;
+}
+
+.md-fab-action-item .md-icon-button {
+  width: 100%;
+}
