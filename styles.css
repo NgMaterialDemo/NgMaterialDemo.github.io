@@ -1,3 +1,7 @@
+body {
+  background: url('https://images.unsplash.com/uploads/1413222992504f1b734a6/1928e537?q=80&fm=jpg&s=f24faa3ab00a050e0b1527fd0bb629b0');
+  background-size: cover;
+}
 .md-fab-toolbar-background {
   z-index: -1 !important;
 }
@@ -31,7 +35,8 @@ a {
 }
 
 .container.md-default-theme {
-  background-color: #fff;
+  background-color: rgba(255,255,255,0.8);
+  height: 80vh;
 }
 .container.md-default-theme h1 {
   text-align: center;

@@ -2,7 +2,7 @@
 
 angular.module('MyApp', ['ngMaterial'])
 
-.controller('MainCtrl', function($scope, $mdSidenav){
+.controller('MainCtrl', function($scope, $mdSidenav, $mdDialog, $mdBottomSheet){
   $scope.openRightMenu = function() {
     $mdSidenav('right').toggle();
   };
@@ -55,4 +55,54 @@ angular.module('MyApp', ['ngMaterial'])
       who: 'Peter Griffin',
       notes: " Hey Brian get over here"
     }];
+    // END Contacts
+
+    // START Dialogs
+    $scope.showHome = function() {
+       $mdDialog.show({
+          clickOutsideToClose: true,
+          scope: $scope,
+          preserveScope: true,
+          template: '<md-dialog>' +
+                    '  <md-dialog-content>' +
+                    '     <p>Hey we have a nice dialog here!!!</p>' +
+                    "     <p>You're already on the home page</p>" +
+                    '  </md-dialog-content>' +
+                    '</md-dialog>',
+          controller: function DialogController($scope, $mdDialog) {
+            $scope.closeDialog = function() {
+              $mdDialog.hide();
+            }
+          }
+       });
+    }
+    $scope.showAbout = function() {
+       $mdDialog.show({
+          clickOutsideToClose: true,
+          scope: $scope,
+          preserveScope: true,
+          template: '<md-dialog>' +
+                    '  <md-dialog-content>' +
+                    '     <p>Hey we have a nice dialog here!!!</p>' +
+                    '     <p>This app was built to organize our contacts</p>' +
+                    '  </md-dialog-content>' +
+                    '</md-dialog>',
+          controller: function DialogController($scope, $mdDialog) {
+            $scope.closeDialog = function() {
+              $mdDialog.hide();
+            }
+          }
+       });
+    }
+    // END Dialogs
+    // START Bottom Sheet
+    $scope.showContacts = function() {
+    $mdBottomSheet.show({
+      template: '<md-bottom-sheet>' +
+      '     <p>Hey we have a nice bottom sheet here!!!</p>' +
+      '     <p>We currently have {{contacts.length}} contacts</p>' +
+      '</md-bottom-sheet>'
+    });
+  };
+  // END Bottom Sheet
 });

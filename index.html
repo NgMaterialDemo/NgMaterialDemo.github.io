@@ -18,13 +18,13 @@
 
     <md-toolbar>
       <md-fab-actions class="md-toolbar-tools">
-        <md-button aria-label="comment" class="md-icon-button">
+        <md-button aria-label="comment" class="md-icon-button" ng-click="showHome()">
             Home
         </md-button>
-        <md-button aria-label="label" class="md-icon-button">
+        <md-button aria-label="label" class="md-icon-button" ng-click="showAbout()">
           About
         </md-button>
-        <md-button aria-label="photo" class="md-icon-button">
+        <md-button aria-label="photo" class="md-icon-button" ng-click="showContacts()">
           Contacts
         </md-button>
       </md-fab-actions>
@@ -36,15 +36,19 @@
   <md-content class="container">
     <h1>My Contacts</h1>
     <md-list>
-      <md-list-item class="md-3-line" ng-repeat="item in contacts">
-        <img ng-src="{{item.face}}?{{$index}}" class="face" alt="{{item.who}}">
-        <div class="md-list-item-text">
-          <h3>{{item.who}}</h3>
-          <h4>{{item.phone}}</h4>
-          <p>{{item.notes}}</p>
+      <div layout="row" layout-wrap>
+        <div flex-sm="100" flex-md="50" flex-lg="33" flex-gt-lg="25" ng-repeat="item in contacts">
+          <md-list-item class="md-3-line">
+            <img ng-src="{{item.face}}?{{$index}}" class="face" alt="{{item.who}}">
+            <div class="md-list-item-text">
+              <h3>{{item.who}}</h3>
+              <h4>{{item.phone}}</h4>
+              <p>{{item.notes}}</p>
+            </div>
+            <md-divider md-inset ng-if="!$last"></md-divider>
+          </md-list-item>
         </div>
-        <md-divider md-inset ng-if="!$last"></md-divider>
-      </md-list-item>
+      </div>
     </md-list>
     <!-- START Add Contact Menu -->
     <md-button ng-click="openRightMenu()" id="addMenu" class="md-fab md-hue-2">
